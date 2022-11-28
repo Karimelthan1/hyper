@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{overflow-x: hidden;}
+        *{margin: 0;}
+        header{
+            background-color: #ccc;
+            text-align: center;
+            text-transform: capitalize;
+            font-size: 50px;
+            height: 150px;
+            line-height: 150px;
+            color: rgb(243, 171, 63);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .flex{
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 850px;
+        }
+        .flex div{
+            width: 300px;
+            max-height: 300px;
+            overflow: auto;
+            margin-bottom: 20px; 
+        }
+        .flex div:nth-of-type(2),.flex div:nth-of-type(3),.flex div:nth-of-type(4),.flex div:nth-of-type(5),.flex div:nth-of-type(6){
+            display: none;
+        }
+        img{
+            display: block;
+            width: 100%;
+            height: 80%;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+        ul{
+            display: block;
+            background-color: #ddd;
+            border-radius: 0 0 20px 20px;
+        }
+        ul li{
+            cursor: pointer;
+            width: 100%;
+            height: 20%;
+            font-size: 30px;
+            text-transform: capitalize;
+            list-style: none;
+        }
+        input{
+            height: 40px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            border-radius: 25px;
+            display: none;
+        }
+        button{
+            position: fixed;
+            right: 20%;
+            margin-top: 20px;
+            font-size: 40px;
+            display: none;
+        }
+        #result{
+            position: absolute;
+            width: 250px;
+            height: 200px;
+            border-radius: 30px;
+            background-color: #ddd;
+            right: 10%;
+            color: #000;
+        }
+        p{
+            text-align: center;
+            line-height: 100px;
+            font-size: 30px;
+            text-transform: capitalize;
+        }
+        h3{
+            text-align: center;
+            text-transform: capitalize;
+            font-size: 30px;
+            border: 1px solid rgb(114, 202, 180);
+            border-radius: 5px;
+            background-color: rgb(190, 239, 190);
+            width: 200px;
+            margin: 10px auto;
+            cursor: pointer;
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>our drinks</header>
+    <button>calculate </button>
+    <div class="flex" id="flex">
+        <div>
+            <img src="images/strpery (1).jpg" alt="">
+            <ul name="" id="size">
+                <li value="">1 litre</li>
+                <li value="">2 litres</li>
+            </ul>
+        </div>
+        <div id="div1">
+            <img src="images/pepsi.jpg" alt="">
+            <ul name="" id="type">
+                <li value="">mernda</li>
+                <li value="">fanta</li>
+                <li value="12">pepsi</li>
+                <input type="text" placeholder="Type Your Amount" required autocomplete="off" id="input1">
+                <li value="12">7 up</li>
+                <input type="text" placeholder="Type Your Amount" required autocomplete="off" id="input2">
+            </ul>
+        </div><!-- div 1 -->
+        <div id="div2" >
+            <img src="images/merenda.jpg" alt="">
+            <ul name="" id="type4">
+                <li value="12" >orange</li>
+                <input type="text" placeholder="Type Your Amount" required autocomplete="off" id="input3">
+                <li value="12" >apple</li>
+                <input type="text" placeholder="Type Your Amount" required autocomplete="off" id="input4">
+            </ul>
+        </div><!-- div 2 -->
+        <div id="div3" >
+            <img src="images/koktel.png" alt="">
+            <ul name="" id="type5">
+                <li value="12" >orange</li>
+                <input type="text" placeholder="Type Your Amount" required autocomplete="off" id="input5">
+                <li value="12" >ananas</li>
+                <input type="text" placeholder="Type Your Amount" required autocomplete="off" id="input6">
+            </ul>
+        </div><!-- div 3 -->
+        <div id="div4">
+            <img src="images/cola.jpg" alt="">
+            <ul name="" id="type2">
+                <li value="">shweps</li>
+                <li value="17">cola</li>
+                <input type="text" placeholder="Type Your Amount" required autocomplete="off" id="input7">
+            </ul>
+        </div><!-- div 4 -->
+        <div id="div5" >
+            <img src="images/shweps.jpeg" alt="">
+            <ul name="" id="type3">
+                <li value="17" >ananas</li>
+                <input type="text" placeholder="Type Your Amount" required autocomplete="off" id="input8">
+                <li value="17" >roman</li>
+                <input type="text" placeholder="Type Your Amount" required autocomplete="off" id="input9">
+                <li value="17" >khokh</li>
+                <input type="text" placeholder="Type Your Amount" required autocomplete="off" id="input10">
+                <li value="17">apple</li>
+                <input type="text" placeholder="Type Your Amount" required autocomplete="off" id="input11">
+            </ul>
+        </div><!-- div 3 -->
+    </div><!-- flex -->
+   <div id="result">
+        <p></p>
+        <h3>send order</h3>
+   </div>
+    <script>
+        let size = document.getElementById("size");
+        let type = document.getElementById("type");
+        let   type2 = document.getElementById("type2");
+        let    type3 = document.getElementById("type3");
+        let    div1 = document.getElementById("div1");
+        let    div4 = document.getElementById("div4");
+        let    div5 = document.getElementById("div5");
+        let    type4 = document.getElementById("type4");
+        let    type5 = document.getElementById("type5");
+        let    input1 = document.getElementById("input1");
+        let    input2 = document.getElementById("input2");
+        let   input3 = document.getElementById("input3");
+        let    input4 = document.getElementById("input4");
+        let    input5 = document.getElementById("input5");
+        let    input6 = document.getElementById("input6");
+        let    input7 = document.getElementById("input7");
+        let    input8 = document.getElementById("input8");
+        let    input9 = document.getElementById("input9");
+        let    input10 = document.getElementById("input10");
+        let    input11 = document.getElementById("input11");
+        let    button = document.querySelector("button");
+        let    result = document.querySelector("result");
+        let    p = document.querySelector("p");
+        let    h3 = document.querySelector("h3");
+        size.firstElementChild.onclick = function () {
+            div1.style.display = "block"
+        }
+        size.lastElementChild.onclick = function () {
+            div4.style.display = "block"
+        }
+        type.firstElementChild.onclick = function () {
+            div2.style.display = "block"
+        }
+        type.children[1].onclick = function () {
+            div3.style.display = "block"
+        }
+        type.children[2].onclick = function () {
+            type.children[3].style.display = "block"
+        }
+        type.children[4].onclick = function () {
+            type.children[5].style.display = "block"
+        }
+        type2.children[1].onclick = function () {
+            type2.children[2].style.display = "block"
+        }
+        type2.children[0].onclick = function () {
+            div5.style.display = "block"
+        }
+        type3.children[0].onclick = function () {
+            type3.children[1].style.display = "block"
+        }
+        type3.children[2].onclick = function () {
+            type3.children[3].style.display = "block"
+        }
+        type3.children[4].onclick = function () {
+            type3.children[5].style.display = "block"
+        }
+        type3.children[6].onclick = function () {
+            type3.children[7].style.display = "block"
+        }
+        
+        type4.children[0].onclick = function () {
+            type4.children[1].style.display = "block"
+        }
+        type4.children[2].onclick = function () {
+            type4.children[3].style.display = "block"
+        }
+        type5.children[0].onclick = function () {
+            type5.children[1].style.display = "block"
+        }
+        type5.children[2].onclick = function () {
+            type5.children[3].style.display = "block"
+        }
+
+        input1.onkeyup = function () {
+            if (input1.value === "" || input1.value <= 0 || isNaN(input1.value) || input1.value >= 10) {
+                input1.style.display = "none"
+                button.style.display = "none";
+            }else{
+                button.style.display = "block";
+            }
+    }
+        input2.onkeyup = function () {
+            if (input2.value === "" || input2.value <= 0 || isNaN(input2.value) || input2.value >= 10) {
+                input2.style.display = "none";
+                button.style.display = "none";
+            }else{
+                button.style.display = "block"
+            }
+    }
+        input3.onkeyup = function () {
+            if (input3.value === "" || input3.value <= 0 || isNaN(input3.value) || input3.value >= 10) {
+                input3.style.display = "none";
+                button.style.display = "none";
+            }else{
+                button.style.display = "block"
+            }
+    }
+        input4.onkeyup = function () {
+            if (input4.value === "" || input4.value <= 0 || isNaN(input4.value) || input4.value >= 10) {
+                input4.style.display = "none";
+                button.style.display = "none";
+            }else{
+                button.style.display = "block"
+            }
+    }
+        input5.onkeyup = function () {
+            if (input5.value === "" || input5.value <= 0 || isNaN(input5.value) || input5.value >= 10) {
+                input5.style.display = "none";
+                button.style.display = "none";
+            }else{
+                button.style.display = "block"
+            }
+    }
+        input6.onkeyup = function () {
+            if (input6.value === "" || input6.value <= 0 || isNaN(input6.value) || input6.value >= 10) {
+                input6.style.display = "none";
+                button.style.display = "none";
+            }else{
+                button.style.display = "block"
+            }
+    }
+        input7.onkeyup = function () {
+            if (input7.value === "" || input7.value <= 0 || isNaN(input7.value) || input7.value >= 10) {
+                input1.style.display = "none";
+                button.style.display = "none";
+            }else{
+                button.style.display = "block"
+            }
+    }
+        input8.onkeyup = function () {
+            if (input8.value === "" || input8.value <= 0 || isNaN(input8.value) || input8.value >= 10) {
+                input8.style.display = "none";
+                button.style.display = "none";
+            }else{
+                button.style.display = "block"
+            }
+    }
+        input9.onkeyup = function () {
+            if (input9.value === "" || input9.value <= 0 || isNaN(input9.value) || input9.value >= 10) {
+                input9.style.display = "none";
+                button.style.display = "none";
+            }else{
+                button.style.display = "block"
+            }
+    }
+        input10.onkeyup = function () {
+            if (input10.value === "" || input10.value <= 0 || isNaN(input10.value) || input10.value >= 10) {
+                input1.style.display = "none";
+                button.style.display = "none";
+            }else{
+                button.style.display = "block"
+            }
+    }
+        input11.onkeyup = function () {
+            if (input11.value === "" || input11.value <= 0 || isNaN(input11.value) || input11.value >= 10) {
+                input11.style.display = "none";
+                button.style.display = "none";
+            }else{
+                button.style.display = "block"
+            }
+    }
+    button.onclick = function () {
+        h3.style.display = "block"
+        p.innerHTML = "The Price Is " + ((type.children[2].value * input1.value) + (type.children[4].value * input2.value) + (type4.children[0].value * input3.value) + (type4.children[2].value * input4.value) + (type5.children[0].value * input5.value) + (type5.children[2].value * input6.value) + (type2.children[1].value * input7.value) +(type3.children[0].value * input8.value) + (type3.children[2].value * input9.value) + (type3.children[4].value * input10.value) + (type3.children[6].value * input11.value)) + " LE"
+    }
+    h3.onclick = function () {
+        let a = window.confirm("Are You Sure To Send Your Order");
+        if (a === true) {
+            window.location.href = "order.html"
+        }else{
+            window.location.href = "drinks.html"
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        body{
+            overflow-x: hidden;
+            perspective: 700px;
+        }
+        *{
+            margin: 0;
+            font-style: italic;
+        }
+        header{
+            text-align: center;
+            text-transform: capitalize;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 70px;
+            height: 200px;
+            line-height: 200px;
+            background-color: #bacfea;
+            color:#b78668 ;
+            display: none;
+        }
+        header span{
+            color: #b76688;
+            display: none;
+        }
+        header p{
+            display: inline-block;
+            position: absolute;
+            left: -300%;
+        }
+        h1{
+            text-align: center;
+            text-transform: capitalize;
+            font-size: 40px;
+            margin: 10px 0;
+            color: #b76688;
+            font-weight: bolder;
+            display: none;
+        }
+        hr{
+            width: 30%;
+            margin: 0 auto;
+            border: 5px solid #f36208;
+            border-radius: 10px;
+            display: none;
+        }
+        .flex{
+            display: flex;
+            width: 90%;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            transform-style: preserve-3d;
+            justify-content: space-around;
+        }
+        .flex div{
+            border-radius: 20px;
+            width: 300px;
+            display: none;
+            
+        }
+        h2{     
+            background-color: rgb(219, 132, 149);       
+            text-align: center;
+            text-transform: capitalize;
+            padding:10px ;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #bacfea;
+            border-radius: 20px 20px 0 0;
+        }
+        img{
+            height: 300px;
+        }
+        div a{
+            border-radius: 0 0 20px 20px ;
+            background-color: rgb(219, 132, 149);
+            display: block;
+            text-align: center;
+            font-size: 30px;
+            text-decoration: none;
+            text-transform: capitalize;
+            color: #f10d6c;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+        footer{
+            text-align: center;
+            text-transform: capitalize;
+            font-size: 50px;
+            color: #bacfea;
+            background-color: #377ad1;
+            height: 200px;
+            line-height: 200px;
+            display:none ;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p> my </p>
+        <span> farmacy</span>
+    </header>
+    <h1>medicine’s parts</h1>
+    <hr>
+    <div class="flex">
+        <div>
+            <h2>tablets</h2>
+            <img src="images/رياضى 1.webp" alt="">
+            <a href="tab.html">click here</a>
+        </div><!-- one -->
+        <div>
+            <h2>ampules</h2>
+            <img src="images/رياضى 1.webp" alt="">
+            <a href="amp.html">click here</a>
+        </div><!-- two -->
+        <div>
+            <h2>drops</h2>
+            <img src="images/رياضى 1.webp" alt="">
+            <a href="drop.html">click here</a>
+        </div><!-- three -->
+        <div>
+            <h2>creams</h2>
+            <img src="images/رياضى 1.webp" alt="">
+            <a href="cream.html">click here</a>
+        </div><!-- four -->
+        <div>
+            <h2>antibaiotics</h2>
+            <img src="images/رياضى 1.webp" alt="">
+            <a href="anti.html">click here</a>
+        </div><!-- five -->
+        <div>
+            <h2>suryp</h2>
+            <img src="images/رياضى 1.webp" alt="">
+            <a href="syr.html">click here</a>
+        </div><!-- six -->
+    </div><!-- flex -->
+    <footer>
+        &copy; copy right with kareem elthan in 2022
+    </footer>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("header").slideDown(1500,function(){$("p").animate({left:"36%"},3000,function(){ $("span").slideDown(3000,function(){$("h1,hr").slideDown(1500,function(){$(".flex div:eq(0)").fadeIn(1500,function(){$(".flex div:eq(1)").slideDown(1500,function(){$(".flex div:eq(2)").show(1500,function(){$(".flex div:eq(3)").fadeIn(1500,function(){$(".flex div:eq(4)").slideDown(1500,function(){$(".flex div:eq(5)").show(1500,function(){$("footer").slideDown(1500)})})})})})})})})})});  
+        });
+    </script>
+</body>
+</html>

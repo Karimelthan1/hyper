@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            perspective: 800px;
+            overflow-x: hidden;
+        }
+        header{
+            background-color: #162435;
+            height: 200px;
+            
+        }
+        header p{
+            text-align: center;
+            text-transform: capitalize;
+            font-style: italic;
+            font-family: serif;
+            font-size: 50px;
+            line-height: 200px;
+            color: rgb(224, 207, 207);
+            transform: translateX(-35%);
+            animation: transforming 5s infinite ease-in-out alternate;
+        }
+        .parent1{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 5% 40%;
+            transform-style: preserve-3d;
+        }
+        .parent1 div{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #178246;
+        }
+        .parent1 div:first-of-type{
+            transform: translateY(170px) translateZ(140px) rotateX(70deg) ;
+        }
+        .parent1 div:nth-of-type(2){
+            transform: translateY(-30px);
+        }
+        .parent1 div:nth-of-type(3){
+            transform: rotateY(-90deg) translateX(150px) translateZ(-150px) translateY(25px) skewY(20deg);
+        }
+        .parent1 div:nth-of-type(4){
+            transform: rotateY(90deg) translateX(-150px) translateZ(-150px) translateY(25px) skewY(-20deg);
+        }
+        .parent1 div:nth-of-type(5),.parent1 div:nth-of-type(6),.parent1 div:nth-of-type(7){
+            transform: translateZ(300px) translateY(80px);
+            text-align: center;
+            text-transform: capitalize;
+            line-height: 300px;
+            font-size: 30px;
+            font-style: italic;
+            cursor: pointer;
+            background-image: url("images/كاجوال.jpg");
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+        }
+        .parent1 div:nth-of-type(5){
+            z-index: 3;
+        }
+        .parent1 div:nth-of-type(6){
+            z-index: 2;
+            display: none;
+        }
+        .parent1 div:nth-of-type(7){
+            z-index: 1;
+            display: none;
+        }
+        .parent1 div:nth-of-type(8),.parent1 div:nth-of-type(9),.parent1 div:nth-of-type(10){
+            border: 2px solid #ddd;
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0 auto;
+            width: 290px;
+            height: 290px;
+            background-color:#fff ;
+            background-image: url("images/كاجوال.jpg");
+            background-position: center;
+            background-size: cover;
+            border-radius: 30px;
+            animation: imging 10s infinite ease-in-out forwards;
+        }
+        .parent1 div:nth-of-type(9){
+            display: none;
+            animation: imging2 10s infinite ease-in-out forwards;
+        }
+        .parent1 div:nth-of-type(10){
+            display: none;
+            animation: imging3 10s infinite ease-in-out forwards;
+            right: 200%;
+        }
+        footer{
+            background-color: #497682;
+            color: #b8ddbd;
+            font-size: 35px;
+            text-align: center;
+            text-transform: capitalize;
+            padding: 10px;
+            font-style: italic;
+            position: absolute;
+            width: 100%;
+            height: 80px;
+            line-height: 80px;
+            bottom: -70%;
+        }
+        @keyframes transforming {
+            0%{
+                transform: translateX(-35%);
+            }
+            100%{
+                transform: translateX(35%);
+            }
+        }
+        @keyframes imging {
+            0%{
+                background-image: url("images/كاجوال.jpg");
+            }
+            25%{
+                background-image: url("images/رياضى\ 1.webp");
+            }
+            50%{
+                background-image: url("images/رياضى\ 3.webp");
+            }
+            100%{
+                background-image: url("images/كاجوال\ 2.jpg");
+            }
+        }
+        @keyframes imging2 {
+            0%{
+                background-image: url("images/كاجوال.jpg");
+            }
+            50%{
+                background-image: url("images/رياضى\ 1.webp");
+            }
+            100%{
+                background-image: url("images/كاجوال\ 2.jpg");
+            }
+        }
+        @keyframes imging3 {
+            0%{
+                background-image: url("images/كاجوال.jpg");
+            }
+            25%{
+                background-image: url("images/رياضى\ 1.webp");
+            }
+            50%{
+                background-image: url("images/كاجوال\ 2.jpg");
+            }
+            100%{
+                background-image: url("images/رياضى\ 3.webp");
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p> effective substance</p>
+    </header>
+    <div class="parent1">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div>paracetamol</div>
+        <div>azithromycin</div>
+        <div>sodium hyaluronate</div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <footer>
+        &copy; copy right with kareem in 2022
+    </footer>
+    
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".parent1 div:nth-of-type(5)").one("click",function(){
+                $(".parent1 div:nth-of-type(8)").animate({
+                    top: "0",
+                    left: "0"
+                },1500);
+                $(".parent1 div:nth-of-type(8)").animate({
+                    top: "-120%",
+                    left: "0"
+                },1500);
+                $(".parent1 div:nth-of-type(8)").animate({
+                    top: "-120%",
+                    left: "150%"
+                },1500);
+                $(".parent1 div:nth-of-type(8)").animate({
+                    top: "80px",
+                    left: "150%"
+                },1500,function(){$(".parent1 div:nth-of-type(5)").slideUp(2000,function(){$(".parent1 div:nth-of-type(6)").slideDown(2000,function(){$(".parent1 div:nth-of-type(9)").fadeIn(1500)})})});
+            });
+
+            $(".parent1 div:nth-of-type(6)").one("click",function(){
+                $(".parent1 div:nth-of-type(9)").animate({
+                    top: "0",
+                    left: "0"
+                },1500);
+                $(".parent1 div:nth-of-type(9)").animate({
+                    top: "-120%",
+                    left: "0"
+                },1500);
+                $(".parent1 div:nth-of-type(9)").animate({
+                    top: "-120%",
+                    left: "-150%"
+                },1500);
+                $(".parent1 div:nth-of-type(9)").animate({
+                    top: "80px",
+                    left: "-150%"
+                },1500,function(){$(".parent1 div:nth-of-type(6)").slideUp(2000,function(){$(".parent1 div:nth-of-type(7)").slideDown(2000,function(){$(".parent1 div:nth-of-type(10)").fadeIn(1500)})})});
+            });
+
+            $(".parent1 div:nth-of-type(7)").one("click",function(){
+                $(".parent1 div:nth-of-type(10)").animate({
+                    top: "0",
+                    left: "0"
+                },1500);
+                $(".parent1 div:nth-of-type(10)").animate({
+                    top: "-120%",
+                    left: "0"
+                },1500);
+                $(".parent1 div:nth-of-type(10)").animate({
+                    top: "-120%",
+                    left: "260%"
+                },1500);
+                $(".parent1 div:nth-of-type(10)").animate({
+                    top: "80px",
+                    left: "260%"
+                },1500);
+            });
+        });
+    </script>
+</body>
+</html>
+

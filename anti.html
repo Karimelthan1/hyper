@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body{
+            overflow-x: hidden;
+        }
+        header{
+            font-size: 50px;
+            font-style: italic;
+            background-color: #b5b6b6;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            color: rgb(89, 89, 227);
+        }
+        h1:first-of-type{
+            margin-top: 30px;
+            margin-bottom: 30px;
+            font-size: 50px;
+            font-style: italic;
+        }
+        h1::after{
+            content: "";
+            display: block;
+            width: 30%;
+            height: 10px;
+            margin: 10px auto;
+            background-color: rgb(220, 220, 29);
+            border-radius: 10px;
+        }
+        .syr .anti_syr{
+            padding: 0;
+            overflow: hidden;
+            /* background-color: black; */
+        }
+        .syr .anti_syr img{
+            max-width: 100%;
+            transform: scale(1.2);
+            animation: transforming 2.5s infinite ease-in-out;
+        }
+        .syr .anti_syr .one{
+            animation-delay: 0;
+        }
+        .syr .anti_syr .two{
+            animation-delay: 0.2s;
+        }
+        .syr .anti_syr .three{
+            animation-delay: 0.4s;
+        }
+        .syr .anti_syr .four{
+            animation-delay: 0.6s;
+        }
+        .syr .anti_syr .five{
+            animation-delay: 0.8s;
+        }
+        .syr .anti_syr .six{
+            animation-delay: 1s;
+        }
+        .syr .anti_syr .seven{
+            animation-delay: 1.2s;
+        }
+        .syr .anti_syr .eight{
+            animation-delay: 1.4s;
+        }
+        @keyframes transforming {
+            0%,100%{
+                transform: scale(1.2);
+            }
+            50%{
+                transform: scale(1);
+            }
+        }
+        .tablet{
+            padding-top: 30px;
+            padding-bottom: 30px;
+            cursor: pointer;
+            transform: translateX(200%);
+        }
+        .tablet h1{
+            margin-bottom: 50px;
+        }
+        .tablet h1{
+            margin-bottom: 50px;
+        }
+        .tablet .anti{
+            margin-bottom: 30px;
+        }
+        .tablet .megamox,.tablet .flumox,.amp .ultra,.amp .maxipime{
+            min-height: 300px;
+            background-image: url("images/1.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+        .tablet .megamox{
+            animation: animating1 10s infinite ease-in-out;
+        }
+        .tablet .flumox{
+            animation: animating2 10s infinite ease-in-out;
+        }
+        .tablet h4{
+            margin-top: 30px;
+        }
+        .tablet p{
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+        .tablet .anti:hover p{
+            opacity: 1;
+        }
+        .amp .data{
+            padding-top: 30px;
+            padding-bottom: 30px;
+            color: #fff;
+        }
+        @keyframes animating1 {
+            0%{
+                background-image: url("images/1.jpg");
+            }
+            25%{
+                background-image: url("images/2.jpg");
+            }
+            50%{
+                background-image: url("images/3.jpg");
+            }
+            100%{
+                background-image: url("images/4.jpg");
+            }
+        }
+        @keyframes animating2 {
+            0%{
+                background-image: url("images/1.jpg");
+            }
+            25%{
+                background-image: url("images/2.jpg");
+            }
+            50%{
+                background-image: url("images/3.jpg");
+            }
+            100%{
+                background-image: url("images/4.jpg");
+            }
+        }
+        @keyframes animating3 {
+            0%,100%{
+                background-image: url("images/1.jpg");
+            }
+            25%{
+                background-image: url("images/2.jpg");
+            }
+            50%{
+                background-image: url("images/3.jpg");
+            }
+        }
+        @keyframes animating4 {
+            0%,100%{
+                background-image: url("images/1.jpg");
+            }
+            25%{
+                background-image: url("images/2.jpg");
+            }
+            50%{
+                background-image: url("images/3.jpg");
+            }
+        }
+        .amp{
+            background-image: url("images/7.jpg");
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 300px;
+            transform: translateX(-200%);
+        }
+        .amp .data{
+            background-color: rgba(2,2,2,.6);
+            min-height: 300px;
+        }
+        .amp .anti_amp{
+            margin-bottom: 30px;
+        }
+        .amp h4{
+            margin-top: 30px;
+        }
+        .amp .ultra{
+            animation: animating3 10s infinite ease-in-out;
+        }
+        .amp .maxipime{
+            animation: animating4 10s infinite ease-in-out;
+        }
+        .amp mark{
+            text-decoration: underline;
+            color: #5555f4;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: transparent;
+        }
+        .amp span{
+            display: none;
+        }
+        .foot{
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        .foot footer{
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        .foot i{
+            color: #fff;
+            padding-top: 20px;
+            margin-bottom: 20px;
+        }
+        .foot img{
+            max-width: 100%;
+            height: 100px;
+        }
+        .icon{
+            display: none;
+            cursor: pointer;
+        }
+        .icon i{
+            position: fixed;
+            right: 50%;
+            bottom: 20px;
+            background-color: rgb(234, 112, 112);
+            color: #fff;
+            padding: 20px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <header class="text-capitalize text-center">antibiotics</header>
+    <h1 class="text-center text-capitalize">antibiotic syr</h1>
+    <section class="syr">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 anti_syr">
+                <img src="images/1.jpg" alt="" class="one">
+            </div>
+            <div class="col-lg-3 col-sm-6 anti_syr">
+                <img src="images/2.jpg" alt="" class="two">
+            </div>
+            <div class="col-lg-3 col-sm-6 anti_syr">
+                <img src="images/3.jpg" alt="" class="three">
+            </div>
+            <div class="col-lg-3 col-sm-6 anti_syr">
+                <img src="images/4.jpg" alt="" class="four">
+            </div>
+            <div class="col-lg-3 col-sm-6 anti_syr">
+                <img src="images/1.jpg" alt="" class="five">
+            </div>
+            <div class="col-lg-3 col-sm-6 anti_syr">
+                <img src="images/2.jpg" alt="" class="six">
+            </div>
+            <div class="col-lg-3 col-sm-6 anti_syr">
+                <img src="images/3.jpg" alt="" class="seven">
+            </div>
+            <div class="col-lg-3 col-sm-6 anti_syr">
+                <img src="images/4.jpg" alt="" class="eight">
+            </div>
+        </div><!-- row -->
+    </section><!-- tablet -->
+
+    <section class="tablet text-capitalize text-center">
+        <div class="container">
+            <h1>antibiotic tab</h1>
+            <div class="row">
+                <div class="col-sm-6 anti">
+                    <div class="megamox"></div>
+                    <h4>amoxicillin / clavulanic acid</h4>
+                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta eum excepturi distinctio dolorem maxime sint debitis necessitatibus blanditiis eligendi tenetur!</p>
+                </div>
+                <div class="col-sm-6 anti">
+                    <div class="flumox"></div>
+                    <h4>amoxicillin / flucloxacillin</h4>
+                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta eum excepturi distinctio dolorem maxime sint debitis necessitatibus blanditiis eligendi tenetur!</p>
+                </div>
+            </div><!-- row -->
+        </div><!-- container -->
+    </section><!-- tablet -->
+
+    <section class="amp text-center text-capitalize">
+        <div class="data">
+            <div class="container">
+                <h1>antibiotic amp</h1>
+                <div class="row">
+                    <div class="col-sm-6 anti_amp">
+                        <div class="ultra"></div>
+                        <h4>ampicillin / sulbactam</h4>
+                        <div class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. A quos tenetur, rem <mark>more</mark><span class="span1">praesentium, repudiandae saepe qui tempore perspiciatis quam tempora, corporis veniam. Maiores, nobis odio in, repellendus distinctio sed laboriosam qui porro excepturi ad dolores veritatis pariatur eligendi nemo sequi numquam facere, ipsa quo quam mollitia asperiores! Quod, quo ipsa. </span></div>
+                    </div>
+                    <div class="col-sm-6 anti_amp">
+                        <div class="maxipime"></div>
+                        <h4>ampicillin / sulbactam</h4>
+                        <div class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. A quos tenetur, rem <mark>more..</mark><span class="max">praesentium, repudiandae saepe qui tempore perspiciatis quam tempora, corporis veniam. Maiores, nobis odio in, repellendus distinctio sed laboriosam qui porro excepturi ad dolores veritatis pariatur eligendi nemo sequi numquam facere, ipsa quo quam mollitia asperiores! Quod, quo ipsa.</span></div>
+                    </div>
+                </div><!-- row -->
+            </div><!-- container -->
+        </div><!-- data -->
+    </section><!-- amp -->
+    <div class="icon">
+        <i class="fa fa-arrow-up fa-3x"></i>
+    </div><!-- icon -->
+    <section class="foot bg-success">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <footer class="fa-2x">
+                        &copy;copy right with karem 
+                    </footer>
+                </div><!-- col -->
+                <div class="col-md-3">
+                    <i class="fab fa-facebook-messenger fa-2x"></i>
+                    <i class="fab fa-twitter fa-2x"></i>
+                    <i class="fab fa-yahoo fa-2x"></i>
+                    <i class="fab fa-google-plus-g fa-2x"></i>
+                </div><!-- col -->
+                <div class="col-md-3">
+                    <img src="images/6.jpg" class="rounded-circle" alt="">
+                </div><!-- col -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </section><!-- foot -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(window).on("scroll",function(){
+                if ($(window).scrollTop() >= $(".tablet").offset().top - 300) {
+                    $(".tablet").css({
+                        transform:"translateX(0)",
+                        "transition-duration":"4s"
+                    })
+                }else{
+                    $(".tablet").css({
+                        transform:"translateX(200%)",
+                        "transition-duration":"4s"
+                    })
+                }
+                if ($(window).scrollTop() >= $(".amp").offset().top - 450) {
+                    $(".amp").css({
+                        transform:"translateX(0)",
+                        "transition-duration":"4s"
+                    })
+                }else{
+                    $(".amp").css({
+                        transform:"translateX(-200%)",
+                        "transition-duration":"4s"
+                    })
+                }
+                if ($(window).scrollTop() > 600) {
+                    $(".icon").show(1000)
+                }else{
+                    $(".icon").hide(1000)
+                }
+            });
+
+            $(".amp mark:first-of-type").click(function(){$(this).fadeOut(500,function(){$(".amp .span1").fadeIn(1500)})});
+
+            $(".amp mark:contains('more..')").click(function(){$(this).fadeOut(500,function(){$(".amp .max").fadeIn(1500)})});
+            $(".icon").click(function(){
+                $(window).scrollTop(0)
+            });
+
+            });
+
+    </script>
+</body>
+</html>
+
+

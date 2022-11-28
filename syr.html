@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/hover.css">
+    <style>
+        body{
+            overflow: hidden;
+        }
+        *{
+            margin: 0;
+        }
+        header{
+            font-size: 50px;
+            font-style: italic;
+            text-align: center;
+            height: 100px;
+            line-height: 100px;
+            background-color: #c5d9a4;
+            text-transform: capitalize;
+            color: #e70847;
+        }
+        .parts{
+            padding: 40px 0;
+        }
+        .parts .col-md-8{
+            margin-top: 20px;
+        }
+        .parts::after,.conc1::after,.conc4::after{
+            content: "";
+            display: block;
+            width: 90%;
+            height: 5px;
+            border-radius: 10px;
+            background-color: #ddd;
+            margin:20px auto ;
+        }
+        .conc4::before,.conc5::before{
+            content: "";
+            display: block;
+            width: 90%;
+            height: 5px;
+            border-radius: 10px;
+            background-color: #ddd;
+            margin:20px auto ;
+        }
+        .parts h1{
+            font-weight: normal;
+            font-size: 35px;
+            background-color: #ddd;
+            border-radius: 20px 20px 0 0;
+            text-align: center;
+            padding: 10px 0;
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+        .parts ul{
+            padding: 0 20px;
+            cursor: pointer;
+        }
+        .parts ul li{
+            line-height: 2;
+            font-size: 20px;
+            cursor: pointer;
+            color: #f6f6f6;
+        }
+        a{
+            display: block;
+            text-decoration: none;
+            color: #d0d0d0;
+            border-radius: 20px;
+            transition: all 0.5s ease-in-out;
+        }
+        img{
+            height: 300px;
+            max-width: 100%;
+        }
+        a:hover{
+            color: #fff;
+            background-color: #e00041;
+            padding-left: 20px;
+        }
+        .desc{
+            display: none;
+        }
+        .one,.two{
+            display: none;
+        }
+        .parts img{
+            max-height: 250px;
+        }
+        .parts p{
+            margin: 20px 0;
+        }
+        .conc1{
+            padding: 50px 0;
+            margin-bottom: 20px;
+        }
+        .conc1 img{
+            margin-bottom: 20px;
+        }
+        .conc1 p{
+            font-size: 30px;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+        .conc2{
+            background-image: url("images/3.jpg");
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 300px;
+            margin-bottom: 60px;
+        }
+        .conc2 .team,.data{
+            background-color: rgba(2,2,2,.6);
+            min-height: 300px;
+            padding: 50px 0;
+        }
+        .conc2 .col-sm-5{
+            background-image: url("images/8.jpg");
+            background-size: cover;
+            background-position: center;
+            min-height: 250px;
+            animation: animating 5s infinite ease-in-out alternate;
+        }
+        .col-sm-7 p{
+            line-height: 1.5;
+            font-size: 23px;
+        }
+        .conc3{
+            background-image: url("images/6.jpg");
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 300px;
+            margin-bottom: 30px;
+            animation: animating2 4s infinite ease-in-out alternate;
+        }
+        .conc3 .col-sm-5{
+            background-image: url("images/4.jpg");
+            background-position: center;
+            background-size: cover;
+            min-height: 250px;
+        }
+        .conc4,.conc5{
+            padding: 40px 0 20px;
+            margin-bottom: 30px;
+        }
+        .conc4 mark{
+            background-color: transparent;
+            color: #4141e0;
+            text-decoration: underline;
+            font-size: 22px;
+            cursor: pointer;
+        }
+        .conc4 mark:last-of-type{
+            display: none;
+        }
+        .conc4 span{
+            display: none;
+        }
+        .conc4 p{
+            line-height: 2;
+        }
+        .conc5{
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+        .conc5 .col-sm-1{
+            max-width: 0;
+            border-radius: 10px;
+            background-color: #9492a1;
+        }
+        .conc5 .dis1{
+            margin-bottom: 20px;
+        }
+        .conc5 p{
+            margin-top: 30px;
+            line-height: 1.6;
+            display: none;
+        }
+        .foot{
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        .foot footer{
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        .foot i{
+            color: #fff;
+            padding-top: 20px;
+            margin-bottom: 20px;
+        }
+        .foot img{
+            max-width: 100%;
+            height: 100px;
+        }
+        .icon{
+            display: none;
+            cursor: pointer;
+        }
+        .icon i{
+            position: fixed;
+            right: 50%;
+            bottom: 20px;
+            background-color: rgb(234, 112, 112);
+            color: #fff;
+            padding: 20px;
+            border-radius: 50%;
+        }
+        .last{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+        }
+        .last .rel{
+            position: relative;
+            width: 70%;
+            min-height: 100px;
+            margin: auto;         
+        }
+        .last .rel span{
+            position: absolute;
+            top: 0;
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            opacity: .3;
+            background-color: #da4d4d;
+            animation: opaciting 2s infinite ease-in-out ;
+        }
+        .last .rel span:first-of-type{
+            left: 0;
+            animation-delay: 0;
+        }
+        .last .rel span:nth-of-type(2){
+            left: 60px;
+            animation-delay: .2s;
+        }
+        .last .rel span:nth-of-type(3){
+            left: 120px;
+            animation-delay: .4s;
+        }
+        .last .rel span:nth-of-type(4){
+            left: 180px;
+            animation-delay: .6s;
+        }
+        .last .rel span:last-of-type{
+            left: 240px;
+            animation-delay: .8s;
+        }
+        @keyframes animating {
+            from{
+                background-image: url("images/8.jpg");
+            }
+            to{
+                background-image: url("images/5.jpg");
+            }
+        }
+        @keyframes animating2 {
+            from{
+                background-image: url("images/6.jpg");
+            }
+            to{
+                background-image: url("images/7.jpg");
+            }
+        }
+        @keyframes opaciting {
+            0%,100%{
+                opacity: 0.3;
+            }
+            50%{
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>suyr</header>
+    <section class="parts text-capitalize">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 hvr-pulse">
+                    <h1>effective substance</h1>
+                    <div class="bg-secondary desc">
+                        <ul class="list-unstyled">
+                            <li class="cl_one">amoxicillin / clavulanic acid
+                                <ol class="one">
+                                    <li><a href="#conc1">concentration 156 mg</a></li>
+                                    <li><a href="#conc2"> concentration 312 mg</a></li>
+                                    <li><a href="#conc3"> concentration 457 mg</a></li>
+                                    <li><a href="#conc4"> concentration 600 mg</a></li>
+                                </ol>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li class="cl_two">ibuprofen
+                                <ol class="two">
+                                    <li><a href="#conc5"> 100 mg / 5 ml</a></li>
+                                    <li><a href="#conc5"> 200 mg / 5 ml</a></li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </div><!-- info -->
+                </div><!-- col -->
+                <div class="col-md-8 hvr-pulse">
+                    <img src="images/7.jpg" class="mx-auto d-block rounded-circle" alt="">
+                    <p class="lead text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus in distinctio est doloremque, sed corporis? Expedita iure consequuntur unde similique ratione earum aliquid, labore distinctio qui iusto. Iusto in consequuntur illo, odio ex quis officia sequi vero. Optio quas, facere voluptatum temporibus deleniti inventore ad, exercitationem commodi modi omnis laboriosam totam voluptates fuga aliquid impedit illum nulla! Fugit autem non asperiores unde neque ipsum quisquam!</p>
+                </div><!-- col -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </section><!-- parts -->
+    <section class="conc1 text-center" id="conc1">
+        <div class="container hvr-wobble-skew">
+            <div class="row">
+                <div class="col-sm-6 ">
+                    <img src="images/1.jpg" class="mx-auto d-block rounded-circle" alt="">
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <img src="images/2.jpg" class="mx-auto d-block rounded-circle" alt="">
+                </div><!-- col -->
+                <div class="col-sm-12">
+                    <p class="lead text-danger">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, quos eos iste iusto at sit deleniti minus dolorum praesentium nisi explicabo et similique beatae tempore saepe perspiciatis odit sint, sequi nam natus minima. Cum non tempora, illo perspiciatis laudantium facere.</p>
+                </div>
+            </div><!-- row -->
+        </div><!-- container -->
+    </section><!-- conc1 -->
+    <section class="conc2 text-center" id="conc2">
+        <div class="team">
+            <div class="container hvr-hang">
+                <div class="row">
+                    <div class="col-sm-5">
+                    </div><!-- col -->
+                    <div class="col-sm-7">
+                        <p class="lead text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis animi numquam voluptas nam iure architecto aperiam sint aspernatur officiis obcaecati aliquam, reiciendis dolore voluptatum dolor nulla reprehenderit. Fugit pariatur quibusdam doloremque esse accusantium quo impedit nihil rem quos similique sed voluptatibus iusto consequuntur nemo suscipit vero, ex natus vel laborum consectetur consequatur dolorum quam. Inventore?</p>
+                    </div>
+                </div><!-- row -->
+            </div><!-- container -->
+        </div><!-- team -->
+    </section><!-- conc2 -->
+    <section  class="conc4 text" id="conc4">
+        <div class="container hvr-buzz-out">
+            <div class="row">
+                <div class="col-sm-5">
+                    <img src="images/8.jpg" alt="">
+                </div>
+                <div class="col-sm-7">
+                    <p class="lead text-success">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi tempora sequi, ipsa dolores voluptate dolorem. Est in libero et aut alias <mark>More</mark> <span> obcaecati odit labore architecto, magnam placeat, minima quod tempora impedit aliquam ipsa ad totam, incidunt iusto. Eos ipsum porro nihil quia in sunt. Libero non aut accusantium qui omnis autem numquam dolorum ipsa temporibus.</span><mark>Less</mark></p>
+                </div>
+            </div><!-- row -->
+        </div><!-- container -->
+    </section><!-- conc 4 --> 
+    <section class="conc3 text-center" id="conc3">
+        <div class="data">
+            <div class="container hvr-wobble-bottom">
+                <div class="row">
+                    <div class="col-sm-5">
+                    </div><!-- col -->
+                    <div class="col-sm-7">
+                        <p class="lead text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis animi numquam voluptas nam iure architecto aperiam sint aspernatur officiis obcaecati aliquam, reiciendis dolore voluptatum dolor nulla reprehenderit. Fugit pariatur quibusdam doloremque esse accusantium quo impedit nihil rem quos similique sed voluptatibus iusto consequuntur nemo suscipit vero, ex natus vel laborum consectetur consequatur dolorum quam. Inventore?</p>
+                    </div>
+                </div><!-- row -->
+            </div><!-- container -->
+        </div><!-- data -->
+    </section><!-- conc3 -->
+    <section class="conc5" id="conc5">
+        <div class="container hvr-wobble-top">
+            <div class="row">
+                <div class="col-sm-6 dis1">
+                    <img src="images/2.jpg" class="mx-auto d-block" alt="">
+                    <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur dolore sapiente sit molestias natus atque recusandae, ut doloremque doloribus minus ex tempora veniam delectus non quia sint nemo id iure eum qui impedit voluptate accusamus.</p>
+                </div><!-- col -->
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-5 dis2">
+                    <img src="images/3.jpg" class="mx-auto d-block" alt="">
+                    <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur dolore sapiente sit molestias natus atque recusandae, ut doloremque doloribus minus ex tempora veniam delectus non quia sint nemo id iure eum qui impedit voluptate accusamus.</p>
+                </div><!-- col -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </section><!-- conc 5 -->
+    <div class="icon">
+        <i class="fa fa-arrow-up fa-3x"></i>
+    </div><!-- icon -->
+    <section class="foot bg-success">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <footer class="fa-2x text-capitalize">
+                        &copy;copy right with karem 
+                    </footer>
+                </div><!-- col -->
+                <div class="col-md-3">
+                    <i class="fab fa-facebook-messenger fa-2x"></i>
+                    <i class="fab fa-twitter fa-2x"></i>
+                    <i class="fab fa-yahoo fa-2x"></i>
+                    <i class="fab fa-google-plus-g fa-2x"></i>
+                </div><!-- col -->
+                <div class="col-md-3">
+                    <img src="images/6.jpg" class="rounded-circle" alt="">
+                </div><!-- col -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </section><!-- foot -->
+
+    <section class="last">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 rel">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                </div><!-- col -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </section><!-- last -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".parts h1").click(function(){
+                $(".parts .desc").slideToggle(1500)
+            });
+            $(".cl_one").click(function(){
+                $(".one").fadeToggle(600)
+            });
+            $(".cl_two").click(function(){
+                $(".two").fadeToggle(600)
+            });
+            $(".conc4 mark:contains('More')").click(function(){
+                $(this).fadeOut("fast",function(){$(".conc4 span, .conc4 mark:contains('Less')").fadeIn("slow")})
+            });
+            $(".conc4 mark:contains('Less')").click(function(){
+                $(".conc4 mark:contains('Less'), .conc4 span").fadeOut("fast",function(){$(".conc4 mark:contains('More')").fadeIn("slow")});
+            });
+            $(".conc5 .dis1").hover(
+                function(){$(".conc5 .dis1 p").slideDown(700)},
+                function(){$(".conc5 .dis1 p").slideUp(700)})
+            $(".conc5 .dis2").hover(
+                function(){$(".conc5 .dis2 p").slideDown(700)},
+                function(){$(".conc5 .dis2 p").slideUp(700)})
+
+            $(window).scroll(function(){
+                if ($(window).scrollTop() > 600) {
+                    $(".icon").show(1000)
+                }else{
+                    $(".icon").hide(1000)
+                }
+            });
+            $(".icon").click(function(){
+                $(window).scrollTop(0)
+            });
+                $(".last span").fadeOut(7000,
+                function(){
+                    $("body").css("overflow","auto"),
+                    $(".last").fadeOut(4000)
+                })
+        });
+
+        
+    </script>
+</body>
+</html>

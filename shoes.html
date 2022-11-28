@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        body{
+            position: relative;
+        }
+        .send{
+            position: absolute;
+            z-index: 2;
+            width: 100%;
+            height: 1500px;
+            opacity: 0.6;
+            display: none;
+        }
+        .send h6{
+            text-align: center;
+            text-transform: capitalize;
+            font-size: 30px;
+            font-style: italic;
+            line-height: 150px;
+            color: #f00;
+            width: 400px;
+            height: 250px;
+            border-radius: 30px;
+            background-color: #ccb5ad;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+        .send input[type="submit"]{
+            position: absolute;
+            bottom: 35%;
+            right: 25%;
+            width: 200px;
+            height: 50px;
+            font-size: 25px;
+        }
+        .flex{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1500px;
+            z-index: 1;
+        }
+        *{
+            margin: 0;
+        }
+        header{
+            background-color: #7a654b;
+            height: 200px;
+            text-align: center;
+            text-transform: capitalize;
+            line-height: 200px;
+            font-family: cursive;
+            font-size:70px ;
+            color:#ffd6a4 ;
+            opacity: 0.8;
+        }
+        .flex1,.flex2,.flex3{
+            width: 700px;
+            height: 400px;
+            position: relative;
+            margin: 20px;
+        }
+        .flex1 div:first-of-type,.flex2 div:first-of-type,.flex3 div:first-of-type{
+            width: 300px;
+            position: relative;
+            height: 100%;
+            background-color: #ccc;
+            border-radius: 30px;
+            z-index: 2;
+        }
+        h3{
+            text-align: center;
+            text-transform: capitalize;
+            font-size: 30px;
+            font-style: italic;
+            margin: 0;
+        }
+        .flex1 div:first-of-type img,.flex2 div:first-of-type img,.flex3 div:first-of-type img{
+            display: inline-block;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            
+        }
+        .flex1 div:first-of-type img:first-of-type,.flex2 div:first-of-type img:first-of-type,.flex3 div:first-of-type img:first-of-type{
+            animation: moving 5s ease-in-out infinite;
+        }
+        .flex1 div:first-of-type img:nth-of-type(2),.flex2 div:first-of-type img:nth-of-type(2),.flex3 div:first-of-type img:nth-of-type(2){
+            animation: moving2 5s ease-in-out infinite;
+        }
+        .flex1 div:first-of-type img:last-of-type,.flex2 div:first-of-type img:last-of-type,.flex3 div:first-of-type img:last-of-type{
+            animation: moving3 5s ease-in-out infinite;
+        }
+        span{
+            display: inline-block;
+            position: absolute;
+            bottom: 20px;
+            left: 10%;
+            text-align: center;
+            text-transform: capitalize;
+            font-size: 25px;
+            font-style: italic;
+            color: #954327;
+        }
+        i{
+            position: absolute;
+            bottom: 20px;
+            right: 25px;
+            color: #7a654b;
+        }
+        .flex1 div:last-of-type,.flex2 div:last-of-type,.flex3 div:last-of-type{
+            background-color: #ccc;
+            width: 300px;
+            height: 350px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+            border-radius: 30px;
+            padding: 10px;
+
+        }
+        input{
+            height: 40px;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        h5{
+            text-align: center;
+            text-transform: capitalize;
+            font-size: 25px;
+            font-style: italic;
+            color: #954327;
+            margin-top: 10px;
+        }
+        select{
+            font-size: 23px;
+            margin: 20px;
+            width: 90px;
+            height: 40px;
+            text-transform: capitalize;
+            display: inline-block;
+        }
+        p{
+            text-align: center;
+            text-transform: capitalize;
+            font-size: 25px;
+        }
+        .right{
+            float: right;
+            width: 300px;
+            height: 180px;
+            border-radius: 30px;
+            background-color: #e386ea;
+            position: fixed;
+            top: -300%;
+            right: 40px; 
+        }
+        .right p{
+            text-align: center;
+            text-transform: capitalize;
+            font-size: 30px;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            color: #df3f09;
+            margin-top: 20px;
+        }
+        .right button{
+            width: 200px;
+            text-align: center;
+            text-transform: capitalize;
+            font-size: 20px;
+            font-style: italic;
+            background-color: #e3a28d;
+            border-radius: 20px;
+            color: #333;
+            position: absolute;
+            right: 10px;
+            bottom: 20px;
+        }
+        @keyframes moving {
+            0%{
+                z-index: 3;
+            }
+            50%{
+                z-index: 2;
+            }
+            100%{
+                z-index: 1;
+            }
+        }
+        @keyframes moving2 {
+            0%{
+                z-index: 2;
+            }
+            50%{
+                z-index: 1;
+            }
+            100%{
+                z-index: 3;
+            }
+        }
+        @keyframes moving3 {
+            0%{
+                z-index: 1;
+            }
+            50%{
+                z-index: 3;
+            }
+            100%{
+                z-index: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="send" id="send">
+        <h6>are you sure to send order</h6>
+        <form action="order.html">
+            <input type="submit" value="send" class="btn btn-outline-primary">
+        </form>
+    </div><!-- send -->
+    <div class="flex">
+        <header>brand shoes</header>
+        <div class="flex1">
+            <div>
+                <h3>loafers shoes</h3>
+                <img src="images/متسكعون.jpg"  alt="">
+                <img src="images/متسكعون 2.jpg" alt="">
+                <img src="images/متسكعون 3.jpg" alt="">
+                <span>click here</span>
+                <i class="fa fa-arrow-right fa-2x" id="icon1"></i>
+            </div><!-- one -->
+            <div id="child2">
+                <h3>fill this form</h3>
+                <input type="text" placeholder="Type Your Amount" required>
+                <input type="text" placeholder="Type Your Adress" required>
+                <h5>choose your size</h5>
+                <select name="" id="select1">
+                    <option value="200">40</option>
+                    <option value="230">41</option>
+                    <option value="250">42</option>
+                    <option value="265">43</option>
+                    <option value="280">44</option>
+                    <option value="300">45</option>
+                </select>
+                <select name="" id="">
+                    <option value="">brown</option>
+                    <option value="">gray</option>
+                    <option value="">black</option>
+                </select>
+                <p></p>
+            </div><!--child two -->
+        </div><!-- flex 1 -->
+        <div class="flex2">
+            <div id="child3">
+                <h3>casual shoes</h3>
+                <img src="images/كاجوال.jpg"  alt="">
+                <img src="images/كاجوال 2.jpg" alt="">
+                <img src="images/590.webp" alt="">
+                <span>click here</span>
+                <i class="fa fa-arrow-right fa-2x" id="icon2"></i>
+            </div><!-- child 3 -->
+            <div id="child4">
+                <h3>fill this form</h3>
+                <input type="text" placeholder="Type Your Amount" required>
+                <input type="text" placeholder="Type Your Adress" required>
+                <h5>choose your size</h5>
+                <select name="" id="select2">
+                    <option value="300">40</option>
+                    <option value="315">41</option>
+                    <option value="335">42</option>
+                    <option value="350" disabled>43</option>
+                    <option value="370">44</option>
+                    <option value="385">45</option>
+                </select>
+                <select name="" id="">
+                    <option value="">blue</option>
+                    <option value="">blessed</option>
+                    <option value="">dark gray</option>
+                </select>
+                <p></p>
+            </div><!-- child 4 -->
+        </div><!-- flex 2 -->
+        <div class="flex3">
+            <div id="child5">
+                <h3>athletic shoes</h3>
+                <img src="images/رياضى.jpg"  alt="">
+                <img src="images/رياضى 1.webp" alt="">
+                <img src="images/رياضى 3.webp" alt="">
+                <span>click here</span>
+                <i class="fa fa-arrow-right fa-2x" id="icon3"></i>
+            </div><!-- child 5 -->
+            <div id="child6">
+                <h3>fill this form</h3>
+                <input type="text" placeholder="Type Your Amount" required>
+                <input type="text" placeholder="Type Your Adress" required>
+                <h5>choose your size</h5>
+                <select name="" id="select3">
+                    <option value="180" disabled>40</option>
+                    <option value="200">41</option>
+                    <option value="220">42</option>
+                    <option value="245" >43</option>
+                    <option value="260">44</option>
+                    <option value="290" disabled>45</option>
+                </select>
+                <select name="" id="">
+                    <option value="">blue</option>
+                    <option value="">blessed</option>
+                    <option value="">dark gray</option>
+                </select>
+                <p></p>
+            </div><!-- child 6 -->
+        </div><!-- flex 3 -->
+        <div class="right" id="last">
+            <p></p>
+            <button>add order</button>
+        </div><!-- last -->
+    </div><!-- flex -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        var child2 = document.getElementById("child2"),
+            child4 = document.getElementById("child4"),
+            child6 = document.getElementById("child6"),
+            select1 = document.getElementById("select1"),
+            select2 = document.getElementById("select2"),
+            select3 = document.getElementById("select3"),
+            last = document.getElementById("last"),
+            send = document.getElementById("send"),
+            p = document.querySelector("p");
+        child2.children[1].onkeyup = function () {
+            if (child2.children[1].value === "" || child2.children[1].value <= 0 || isNaN(child2.children[1]).value || child2.children[1].value >=3) {
+                child2.style.left = "20px";
+                last.style.top = "-300%"
+            }else{
+                select1.onchange = function () {
+                child2.children[6].innerHTML ="The Price Is " + (child2.children[1].value * select1.value) + " LE";
+                last.children[0].innerHTML ="The Price Is " + ((child2.children[1].value * select1.value) + (child4.children[1].value * select2.value) + (child6.children[1].value * select3.value)) + "LE";
+                last.style.top = "300px"
+                }
+            }
+        } 
+        child4.children[1].onkeyup = function () {
+            if (child4.children[1].value === "" || child4.children[1].value <= 0 || isNaN(child4.children[1]).value || child4.children[1].value >=3) {
+                child3.style.left = "20px";
+                last.style.top = "-300%"
+            }else{
+                select2.onchange = function () {
+                child4.children[6].innerHTML ="The Price Is " + (child4.children[1].value * select2.value) + " LE";
+                last.children[0].innerHTML ="The Price Is " + ((child2.children[1].value * select1.value) + (child4.children[1].value * select2.value) + (child6.children[1].value * select3.value)) + "LE"
+                last.style.top = "300px"
+                }
+            }
+        } 
+        child6.children[1].onkeyup = function () {
+            if (child6.children[1].value === "" || child6.children[1].value <= 0 || isNaN(child6.children[1]).value || child6.children[1].value >=3) {
+                child5.style.display = "block";
+                last.style.top = "-300%"
+            }else{
+                select3.onchange = function () {
+                child6.children[6].innerHTML ="The Price Is " + (child6.children[1].value * select3.value) + " LE";
+                last.children[0].innerHTML ="The Price Is " + ((child2.children[1].value * select1.value) + (child4.children[1].value * select2.value) + (child6.children[1].value * select3.value)) + "LE";
+                last.style.top = "300px"
+                }
+            }
+        }
+        last.children[1].onclick = function () {
+            send.style.display = "block"
+        }
+        send.children[1].onclick = function () {
+            location.href = "http://127.0.0.1:5501/order.html"
+        }
+        $(document).ready(function(){
+            $("#icon1").click(function(){
+                $("#child2").animate({
+                    left: "350px"
+                },3000)
+            });
+            $("#icon2").click(function(){
+                $("#child3").animate({
+                    left: "350px"
+                },3000)
+            });
+            $("#icon3").click(function(){
+                $("#child5").fadeToggle(3000)
+            });
+        });    
+    </script>
+</body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Tablet</title>
+    <style>
+        body{
+            perspective: 1000px;
+            overflow-x: hidden;
+        }
+        .parent{
+            position: relative;
+            height: 650px;
+            cursor: pointer;
+        }
+        .parent div{
+            width: 200px;
+            height: 200px;
+            line-height: 150px;
+            border-radius: 50%;
+            text-align: center;
+            text-transform: capitalize;
+            font-size: 20px;
+            cursor: pointer;
+            color: rgb(58, 52, 52);
+            display: none;
+        }
+        .parent div:first-of-type{
+            position: absolute;
+            top: 0;
+            left: 40%;
+            border-radius: 50%;
+            background-color: #db1c6f;
+        }
+        .parent div:nth-of-type(2){
+            position: absolute;
+            top: 30%;
+            left: 55%;
+            border-radius: 50%;
+            background-color: #9ae018;
+        }
+        .parent div:nth-of-type(3){
+            position: absolute;
+            top: 35%;
+            left: 25%;
+            border-radius: 50%;
+            background-color: #5a0dea;
+        }
+        .parent div:nth-of-type(4){
+            position: absolute;
+            top: 65%;
+            left: 40%;
+            border-radius: 50%;
+            background-color: #0dea3d;
+        }
+        .parent div:last-of-type{
+            position: absolute;
+            top: 35%;
+            left: 42%;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background-color: #ddd;
+            line-height: 160px;
+            font-size: 20px;
+            display: block;
+        }
+.flex{
+    display: flex;
+    width: 80%;
+    height: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 10px auto;
+}
+.flex div{
+    display: none;
+}
+.parent1,.parent2,.parent3,.parent4,.parent6{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    transform-style: preserve-3d;
+    margin-bottom: 20px;
+}
+.parent5,.parent5 div{
+    width: 300px;
+    height: 400px;
+}
+.parent1 div,.parent2 div,.parent3 div,.parent4 div,.parent6 div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+}
+.parent1 div:first-of-type,.parent2 div:first-of-type,.parent3 div:first-of-type,.parent4 div:first-of-type,.parent6 div:first-of-type{
+    z-index: 2;
+    backface-visibility: hidden;
+}
+.parent1 div:last-of-type,.parent2 div:last-of-type,.parent3 div:last-of-type,.parent4 div:last-of-type,.parent6 div:last-of-type{
+    z-index: 1;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+.parent1:hover,.parent2:hover,.parent3:hover,.parent4:hover,.parent6:hover{
+    transition: all 3s ease-in-out;
+    transform: rotateY(180deg);
+}
+h2,p{
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 25px;
+    font-style: italic;
+    padding: 10px;
+    background-color: #ddd;
+    border-radius: 20px 20px 0 0;
+}      
+img{
+    width: 100%;
+    height: 300px;
+    border-radius: 0 0 20px 20px;
+}      
+span{
+    display: block;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 25px;
+    font-style: italic;
+    background-color: #ddd;
+    border-radius: 0 0 20px 20px;
+    cursor: pointer;
+}
+.icon{
+    display: none;
+    cursor: pointer;
+}
+.icon i{
+    position: fixed;
+    right: 50%;
+    bottom: 20px;
+    background-color: rgb(234, 112, 112);
+    color: #fff;
+    padding: 20px;
+    border-radius: 50%;
+}
+.esmoprazole{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    margin: 50px auto;
+    display: none;
+}
+.esmoprazole .one,.esmoprazole .two{
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    top: 0;
+    left: 0;
+    transform: skewY(15deg);
+}
+.one div:nth-child(1),.one div:nth-child(2){
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    top: 0;
+    left: 0;
+}
+.one div:nth-child(2){
+    z-index: 1;
+    animation: indexing2 5s infinite ease-in-out;
+}
+.one div:nth-child(1){
+    z-index: 2;
+    animation: indexing 5s infinite ease-in-out;
+}
+.two{
+    transform-style: preserve-3d;
+    z-index: 6;
+}
+.two div:nth-child(1),.two div:nth-child(2){
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    top: 0;
+    left: 0;
+}
+.two div:nth-child(2){
+    z-index: 4;
+    backface-visibility: hidden;
+}
+.two div:nth-child(1){
+    z-index: 3;
+    transform: rotateY(180deg);
+}
+p{
+    height: 80%;
+    line-height: 350px;
+    font-size: 40px;
+}
+@keyframes indexing {
+    from{
+        z-index: 2;
+    }
+    to{
+        z-index: 1;
+    }
+}
+@keyframes indexing2 {
+    from{
+        z-index: 1;
+    }
+    to{
+        z-index: 2;
+    }
+}
+@keyframes moving {
+    0%{
+        left: -300%;
+    }
+    50%{
+        left: 0%;
+    }
+    100%{
+        left: 300%;
+    }
+}
+.multi{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: none;
+}
+.multi div{
+    position: absolute;
+    top: 0;
+    left: -300%;
+    width: 100%;
+    height: 500px;
+    animation: moving 12s infinite ease-in-out backwards;
+}
+.multi div:first-of-type{
+    z-index: 3;
+}
+.multi div:nth-of-type(2){
+    z-index: 2;
+    animation-delay: 4s;
+}
+.multi div:last-of-type{
+    z-index: 1;
+    animation-delay: 8s;
+}
+h3{
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 35px;
+    padding: 10px;
+    margin-bottom: 0;
+    background-color: #ccc;
+    font-style: italic;
+    border-radius: 20px 20px 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.multi div img{
+    display: block;
+    width: 100%;
+}
+.famotidine{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    display: none;
+}
+.famotidine div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+}
+.famotidine div:first-of-type{
+    z-index: 2;
+}
+.famotidine div:first-of-type{
+    z-index: 1;
+}
+footer{
+    background-color: #497682;
+    color: #b8ddbd;
+    font-size: 35px;
+    text-align: center;
+    text-transform: capitalize;
+    padding: 10px;
+    font-style: italic;
+}
+    </style>
+</head>
+<body>
+    <div class="parent">
+            <div>bisoprolol fumarate</div>
+            <div>esmoprazole</div>
+            <div>cyclobenzaprine</div>
+            <div>famotidine</div> 
+            <div>click to display</div>
+    </div><!-- parent -->
+    <div class="flex">
+        <div class="parent1">
+            <div>
+                <h2>concor 5</h2>
+                <img src="images/pepsi.jpg" alt="">
+                <span>hover here</span>
+            </div><!-- one -->
+            <div>
+                <h2>concor 5 plus</h2>
+                <img src="images/رياضى.jpg" alt="">
+            </div><!-- two -->
+        </div><!-- parent 1 -->
+        <div class="parent2">
+            <div>
+                <h2>concor 10</h2>
+                <img src="images/pepsi.jpg" alt="">
+                <span>hover here</span>
+            </div><!-- one -->
+            <div>
+                <h2>concor 10 plus</h2>
+                <img src="images/رياضى.jpg" alt="">
+            </div><!-- two -->
+        </div><!-- parent 2 -->
+        <div class="parent3">
+            <div>
+                <h2>concor 2.5</h2>
+                <img src="images/pepsi.jpg" alt="">
+                <span>hover here</span>
+            </div><!-- one -->
+            <div>
+                <h2>concor amlo 5/5</h2>
+                <img src="images/رياضى.jpg" alt="">
+            </div><!-- two -->
+        </div><!-- parent 3 -->
+        <div class="parent4">
+            <div>
+                <h2>bisocard 2.5</h2>
+                <img src="images/pepsi.jpg" alt="">
+                <span>hover here</span>
+            </div><!-- one -->
+            <div>
+                <h2>bisocard 5</h2>
+                <img src="images/رياضى.jpg" alt="">
+            </div><!-- two -->
+        </div><!-- parent 4 -->
+        <div class="parent5">
+            <div>
+                <h2>bisocard 10</h2>
+                <img src="images/pepsi.jpg" alt="">
+            </div><!-- one -->
+        </div><!-- parent 5 -->
+        <div class="parent6">
+            <div>
+                <h2>soprol 5</h2>
+                <img src="images/pepsi.jpg" alt="">
+                <span>hover here</span>
+            </div><!-- one -->
+            <div>
+                <h2>soprol 10</h2>
+                <img src="images/رياضى.jpg" alt="">
+            </div><!-- two -->
+        </div><!-- parent 6 -->
+    </div><!-- flex -->
+    <div class="esmoprazole">
+        <div class="one">
+            <div>
+                <h2>nexicure 20 mg</h2>
+                <img src="images/رياضى 3.webp" alt="">
+            </div>
+            <div>
+                <h2>nexicure 40 mg</h2>
+                <img src="images/رياضى 1.webp" alt="">
+            </div>
+        </div><!-- one -->
+        <div class="two">
+            <div>
+                <h2>aig esmoprazole 40 mg</h2>
+                <img src="images/رياضى 3.webp" alt="">
+            </div>
+            <div>
+                <p>esmoprazole</p>
+            </div>
+        </div><!-- two -->
+    </div><!-- esmoprazole -->
+    <div class="multi">
+        <div >
+            <h3>multi relax 5 mg</h3>
+            <img src="images/متسكعون 3.jpg" alt="">
+        </div><!-- one -->
+        <div>
+            <h3>multi relax 10 mg</h3>
+            <img src="images/متسكعون 2.jpg" alt="">
+        </div><!-- two -->
+        <div>
+            <h3>cycloflex 5 mg</h3>
+            <img src="images/متسكعون.jpg" alt="">
+        </div><!-- three -->
+    </div><!-- multi -->
+
+    <div class="famotidine">
+        <div>
+            <h3>antodine 20 mg</h3>
+            <img src="images/merenda.jpg" alt="">
+            <span>show other</span>
+        </div><!-- one -->
+        <div>
+            <h3>antodine 40 mg</h3>
+            <img src="images/koktel.png" alt="">
+            <span>to hide</span>
+        </div><!-- two -->
+    </div><!-- famotidine -->
+    <div class="icon">
+        <i class="fa fa-arrow-up fa-3x"></i>
+    </div>
+    <footer>
+        &copy; copy right with kareem in 2022
+    </footer>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".parent div:first").click(function(){
+                $(".flex div").fadeIn(1500)
+            })
+            $(".parent div:last").prev().click(function(){
+                $(".famotidine").fadeIn(1500)
+            })
+            $(".parent div:first").next().click(function(){
+                $(".esmoprazole").fadeIn(1500)
+            })
+            $(".parent div:eq(3)").prev().click(function(){
+                $(".multi").fadeIn(1500)
+            })
+            $(".parent div:last").click(function(){
+                $(this).siblings().fadeToggle(1500)
+            })
+            $(".famotidine div:eq(0) span").click(function(){
+                $((".famotidine div:eq(1)")).animate({
+                    left:"420px"
+                },2000)
+            })
+            $(".famotidine div:eq(1) span").click(function(){
+                $((".famotidine div:eq(1)")).animate({
+                    left:"0"
+                },2000)
+            })
+            $(window).on("scroll",function(){
+                if ($(window).scrollTop() > 600) {
+                    $(".icon").show(1000)
+                }else{
+                    $(".icon").hide(1000)
+                }
+            });
+            $(".icon").click(function(){
+                $(window).scrollTop(0)
+            })
+            
+            $(".esmoprazole").mouseenter(function(){
+                $(".two").css({
+                    transform:" rotateY(180deg) translateX(-400px) skewY(15deg)",
+                    "transition-duration":"5s"
+                },1000)
+            })
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ampules</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        *{
+            margin: 0;
+            text-align: center;
+            text-transform: capitalize;
+            font-style: italic;
+            font-family: serif;
+        }
+        body{
+            overflow-x: hidden;
+        }
+        header{
+            font-size: 50px;
+            background-color: #162435;
+            height: 200px;
+            line-height: 200px;
+            color: rgb(224, 207, 207);
+        }
+        h2{
+            font-size: 50px;
+            margin: 20px 0;
+        }
+        .flex1,.flex2,.flex3{
+            display: flex;
+            height: 500px;
+            justify-content: space-around;
+        }
+        .flex1 div,.flex2 div,.flex3 div{
+            width: 500px;
+            height: 350px;
+        }
+        .flex1 div:first-of-type,.flex2 div:first-of-type,.flex3 div:first-of-type{
+            position: relative;
+        }
+        .flex1 div:first-of-type p,.flex2 div:first-of-type p,.flex3 div:first-of-type p{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            line-height: 300px;
+            background-color: #665522;
+            border-radius: 30px;
+            color: #112233;
+            font-size: 50px;
+        }
+        .flex1 div p:first-of-type,.flex3 div p:first-of-type{
+            z-index: 3;
+            animation: indexing1 5s ease-in-out infinite backwards;
+            background-color: #5a9def;
+        }
+        .flex1 div p:nth-of-type(2),.flex3 div p:nth-of-type(2){
+            z-index: 2;
+            animation: indexing2 5s ease-in-out infinite backwards;
+            background-color: rgb(18, 239, 103);
+        }
+        .flex1 div p:last-of-type,.flex3 div p:last-of-type{
+            z-index: 1;
+            animation: indexing3 5s ease-in-out infinite backwards;
+            background-color: rgb(210, 64, 210);
+        }
+        .flex1 div:last-of-type,.flex2 div:last-of-type,.flex3 div:last-of-type{
+            width: 500px;
+            height: 350px;
+            background-image: url("images/كاجوال.jpg");
+            background-position: center;
+            background-size: cover;
+            border-radius: 30px;
+            order: 2;
+            animation: changing1 20s infinite ease-in-out forwards;
+        }
+        .flex2 div p:first-of-type{
+            z-index: 4;
+            animation: indexing4 5s ease-in-out infinite backwards;
+            background-color: #5a9def;
+        }
+        .flex2 div p:nth-of-type(2){
+            z-index: 3;
+            animation: indexing5 5s ease-in-out infinite backwards;
+            background-color: rgb(18, 239, 103);
+        }
+        .flex2 div p:nth-of-type(3){
+            z-index: 2;
+            animation: indexing6 5s ease-in-out infinite backwards;
+            background-color: rgb(237, 108, 108);
+        }
+        .flex2 div p:last-of-type{
+            z-index: 1;
+            animation: indexing7 5s ease-in-out infinite backwards;
+            background-color: darkmagenta;
+        }
+        .flex2 div:last-of-type{
+            animation: changing2 20s ease-in-out infinite backwards;
+        }
+        .flex3 div:last-of-type{
+            animation: changing3 20s ease-in-out infinite backwards;
+        }
+        .flex3 div:first-of-type p{
+            font-size: 35px;
+            padding: 10px;
+        }
+        
+        @keyframes changing1 {
+            0%,100%{
+                background-image: url("images/كاجوال.jpg");
+            }
+            10%{
+                background-image: url("images/رياضى\ 3.webp");
+            }
+            20%{
+                background-image: url("images/41d13jB9v6L._AC_SY780_.jpg");
+            }
+            30%{
+                background-image: url("images/590.webp");
+            }
+            40%{
+                background-image: url("images/cola.jpg");
+            }
+            50%{
+                background-image: url("images/merenda.jpg");
+            }
+            60%{
+                background-image: url("images/koktel.png");
+            }
+            70%{
+                background-image: url("images/pepsi.jpg");
+            }
+            80%{
+                background-image: url("images/shweps.jpeg");
+            }
+            90%{
+                background-image: url("images/strpery\ \(1\).jpg");
+            }
+        }
+        @keyframes changing2 {
+            0%,100%{
+                background-image: url("images/كاجوال.jpg");
+            }
+            10%{
+                background-image: url("images/رياضى\ 3.webp");
+            }
+            20%{
+                background-image: url("images/41d13jB9v6L._AC_SY780_.jpg");
+            }
+            30%{
+                background-image: url("images/590.webp");
+            }
+            40%{
+                background-image: url("images/cola.jpg");
+            }
+            50%{
+                background-image: url("images/merenda.jpg");
+            }
+            60%{
+                background-image: url("images/koktel.png");
+            }
+            70%{
+                background-image: url("images/pepsi.jpg");
+            }
+            80%{
+                background-image: url("images/shweps.jpeg");
+            }
+        }
+        @keyframes changing3 {
+            0%,100%{
+                background-image: url("images/كاجوال.jpg");
+            }
+            10%{
+                background-image: url("images/رياضى\ 3.webp");
+            }
+            20%{
+                background-image: url("images/41d13jB9v6L._AC_SY780_.jpg");
+            }
+            30%{
+                background-image: url("images/590.webp");
+            }
+            40%{
+                background-image: url("images/cola.jpg");
+            }
+            50%{
+                background-image: url("images/merenda.jpg");
+            }
+            60%{
+                background-image: url("images/koktel.png");
+            }
+            70%{
+                background-image: url("images/pepsi.jpg");
+            }
+            80%{
+                background-image: url("images/shweps.jpeg");
+            }
+        }
+        @keyframes indexing1 {
+            0%{
+                z-index: 3;
+            }
+            50%{
+                z-index: 1;
+            }
+            100%{
+                z-index: 2;
+            }
+        }
+        @keyframes indexing2 {
+            0%{
+                z-index: 2;
+            }
+            50%{
+                z-index: 3;
+            }
+            100%{
+                z-index: 1;
+            }
+        }
+        @keyframes indexing3 {
+            0%{
+                z-index: 1;
+            }
+            50%{
+                z-index: 2;
+            }
+            100%{
+                z-index: 3;
+            }
+        }
+        @keyframes indexing4 {
+            0%{
+                z-index: 4;
+            }
+            50%{
+                z-index: 3;
+            }
+            75%{
+                z-index: 2;
+            }
+            100%{
+                z-index: 1;
+            }
+        }
+        @keyframes indexing5 {
+            0%{
+                z-index: 3;
+            }
+            50%{
+                z-index: 4;
+            }
+            75%{
+                z-index: 1;
+            }
+            100%{
+                z-index:2;
+            }
+        }
+        @keyframes indexing6 {
+            0%{
+                z-index: 2;
+            }
+            50%{
+                z-index: 3;
+            }
+            75%{
+                z-index: 4;
+            }
+            100%{
+                z-index: 1;
+            }
+        }
+        @keyframes indexing7 {
+            0%{
+                z-index: 1;
+            }
+            50%{
+                z-index: 2;
+            }
+            75%{
+                z-index: 3;
+            }
+            100%{
+                z-index: 4;
+            }
+        }
+        .icon{
+            display: none;
+            cursor: pointer;
+        }
+        .icon i{
+            position: fixed;
+            right: 50%;
+            bottom: 20px;
+            background-color: rgb(234, 112, 112);
+            color: #fff;
+            padding: 20px;
+            border-radius: 50%;
+        }
+        .f2,.f3,.flex2,.flex3{
+            opacity: 0;
+        }
+        footer{
+            background-color: #497682;
+            color: #b8ddbd;
+            font-size: 35px;
+            text-align: center;
+            text-transform: capitalize;
+            padding: 10px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+        <header>effective substance</header>
+        <h2>ceftriaxone</h2>
+        <div class="flex1">
+            <div>
+                <p>ceftriaxone 250 mg</p>
+                <p>ceftriaxone 500 mg</p>
+                <p>ceftriaxone 1000 mg</p>
+            </div><!-- one -->
+            <div></div>
+        </div><!-- flex 1 -->
+        <h2 class="f2">cefotaxime</h2>
+        <div class="flex2 ">
+            <div>
+                <p>cefotaxime 250 mg</p>
+                <p>cefotaxime 500 mg</p>
+                <p>cefotaxime 1000 mg</p>
+                <p>cefotaxime 2000 mg</p>
+            </div><!-- one -->
+            <div></div>
+        </div><!-- flex 2 -->
+        <h2 class="f3">ampicillin/sulbactam</h2>
+        <div class="flex3 ">
+            <div>
+                <p>ampicillin/sulbactam 375 mg</p>
+                <p>ampicillin/sulbactam 750 mg</p>
+                <p>ampicillin/sulbactam 1500 mg</p>
+            </div><!-- one -->
+            <div></div>
+        </div><!-- flex 3 -->
+        <div class="icon">
+            <i class="fa fa-arrow-up fa-3x"></i>
+        </div>
+        <footer>
+            &copy; copy right with kareem in 2022
+        </footer>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(window).on("scroll",function(){
+                console.log("window top: " + $(window).scrollTop());
+                console.log("flex2 offset: " +$(".flex2").offset().top);
+
+                if ($(window).scrollTop() >= $(".flex2").offset().top - 400) {
+                $(".flex2, .f2").css({
+                    opacity:1,
+                    "transition-duration":"5s"
+                })
+                }else{
+                    $(".flex2, .f2").css({
+                        opacity:0,
+                        "transition-duration":"5s"
+                    })
+                }
+                if ($(window).scrollTop() >= $(".flex3").offset().top - 500) {
+                $(".flex3, .f3").css({
+                    opacity:1,
+                    "transition-duration":"5s"
+                })
+                }else{
+                    $(".flex3, .f3").css({
+                        opacity:0,
+                        "transition-duration":"5s"
+                    })
+                }
+                if ($(window).scrollTop() >= 500) {
+                    $(".icon").show(1000)
+                }else{
+                    $(".icon").hide(1000)
+                }
+            });
+            $(".icon").click(function(){
+                $(window).scrollTop(0)
+            })    
+        });
+    </script>
+</body>
+</html>

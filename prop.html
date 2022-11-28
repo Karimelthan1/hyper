@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        header{
+            background-color: #ccc;
+            font-size: 50px;
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+            text-transform: capitalize;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-style: italic;
+        }
+        div{
+            height: 580px;
+            background-color: #767676;
+            text-align: center;
+            font-size: 350px;
+            line-height: 500px;
+            color: #d8a676;
+        }
+    </style>
+</head>
+<body>
+    <header>wait for seconds..</header>
+    <div>5</div>
+    <script>
+        let div = document.querySelector("div")
+        let time =  setInterval(() => {
+            if (div.textContent <= 0) {
+            window.location.href = ("shoes.html")
+            clearInterval(time);
+        }else{
+            div.textContent = div.textContent - 1
+        }
+        }, 1000);
+    </script>
+</body>
+</html>
